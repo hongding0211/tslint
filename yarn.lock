@@ -2,10 +2,32 @@
 # yarn lockfile v1
 
 
-chalk@^5.3.0:
-  version "5.3.0"
-  resolved "https://artifactory.devops.xiaohongshu.com/artifactory/api/npm/npm-public/chalk/download/chalk-5.3.0.tgz#67c20a7ebef70e7f3970a01f90fa210cb6860385"
-  integrity sha1-Z8IKfr73Dn85cKAfkPohDLaGA4U=
+ansi-styles@^4.1.0:
+  version "4.3.0"
+  resolved "https://artifactory.devops.xiaohongshu.com/artifactory/api/npm/npm-public/ansi-styles/download/ansi-styles-4.3.0.tgz#edd803628ae71c04c85ae7a0906edad34b648937"
+  integrity sha1-7dgDYornHATIWuegkG7a00tkiTc=
+  dependencies:
+    color-convert "^2.0.1"
+
+balanced-match@^1.0.0:
+  version "1.0.2"
+  resolved "https://artifactory.devops.xiaohongshu.com/artifactory/api/npm/npm-public/balanced-match/download/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
+  integrity sha1-6D46fj8wCzTLnYf2FfoMvzV2kO4=
+
+brace-expansion@^2.0.1:
+  version "2.0.1"
+  resolved "https://artifactory.devops.xiaohongshu.com/artifactory/api/npm/npm-public/brace-expansion/download/brace-expansion-2.0.1.tgz#1edc459e0f0c548486ecf9fc99f2221364b9a0ae"
+  integrity sha1-HtxFng8MVISG7Pn8mfIiE2S5oK4=
+  dependencies:
+    balanced-match "^1.0.0"
+
+chalk@^4:
+  version "4.1.2"
+  resolved "https://artifactory.devops.xiaohongshu.com/artifactory/api/npm/npm-public/chalk/download/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
+  integrity sha1-qsTit3NKdAhnrrFr8CqtVWoeegE=
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
 
 clear@^0.1.0:
   version "0.1.0"
@@ -28,6 +50,18 @@ clui@^0.3.6:
   integrity sha1-jh5c6nMypuVAg/WdoMy+HW8vp4c=
   dependencies:
     cli-color "0.3.2"
+
+color-convert@^2.0.1:
+  version "2.0.1"
+  resolved "https://artifactory.devops.xiaohongshu.com/artifactory/api/npm/npm-public/color-convert/download/color-convert-2.0.1.tgz#72d3a68d598c9bdb3af2ad1e84f21d896abd4de3"
+  integrity sha1-ctOmjVmMm9s68q0ehPIdiWq9TeM=
+  dependencies:
+    color-name "~1.1.4"
+
+color-name@~1.1.4:
+  version "1.1.4"
+  resolved "https://artifactory.devops.xiaohongshu.com/artifactory/api/npm/npm-public/color-name/download/color-name-1.1.4.tgz#c2a09a87acbde69543de6f63fa3995c826c536a2"
+  integrity sha1-wqCah6y95pVD3m9j+jmVyCbFNqI=
 
 d@1, d@^1.0.1:
   version "1.0.1"
@@ -112,6 +146,11 @@ ext@^1.1.2:
   dependencies:
     type "^2.7.2"
 
+has-flag@^4.0.0:
+  version "4.0.0"
+  resolved "https://artifactory.devops.xiaohongshu.com/artifactory/api/npm/npm-public/has-flag/download/has-flag-4.0.0.tgz#944771fd9c81c81265c4d6941860da06bb59479b"
+  integrity sha1-lEdx/ZyByBJlxNaUGGDaBrtZR5s=
+
 lru-queue@0.1:
   version "0.1.0"
   resolved "https://artifactory.devops.xiaohongshu.com/artifactory/api/npm/npm-public/lru-queue/download/lru-queue-0.1.0.tgz#2738bd9f0d3cf4f84490c5736c48699ac632cda3"
@@ -132,6 +171,13 @@ memoizee@0.3.x:
     next-tick "~0.2.2"
     timers-ext "0.1"
 
+minimatch@^9.0.3:
+  version "9.0.3"
+  resolved "https://artifactory.devops.xiaohongshu.com/artifactory/api/npm/npm-public/minimatch/download/minimatch-9.0.3.tgz#a6e00c3de44c3a542bfaae70abfc22420a6da825"
+  integrity sha1-puAMPeRMOlQr+q5wq/wiQgptqCU=
+  dependencies:
+    brace-expansion "^2.0.1"
+
 next-tick@1, next-tick@^1.1.0:
   version "1.1.0"
   resolved "https://artifactory.devops.xiaohongshu.com/artifactory/api/npm/npm-public/next-tick/download/next-tick-1.1.0.tgz#1836ee30ad56d67ef281b22bd199f709449b35eb"
@@ -141,6 +187,13 @@ next-tick@~0.2.2:
   version "0.2.2"
   resolved "https://artifactory.devops.xiaohongshu.com/artifactory/api/npm/npm-public/next-tick/download/next-tick-0.2.2.tgz#75da4a927ee5887e39065880065b7336413b310d"
   integrity sha1-ddpKkn7liH45BliABltzNkE7MQ0=
+
+supports-color@^7.1.0:
+  version "7.2.0"
+  resolved "https://artifactory.devops.xiaohongshu.com/artifactory/api/npm/npm-public/supports-color/download/supports-color-7.2.0.tgz#1b7dcdcb32b8138801b3e478ba6a51caa89648da"
+  integrity sha1-G33NyzK4E4gBs+R4umpRyqiWSNo=
+  dependencies:
+    has-flag "^4.0.0"
 
 timers-ext@0.1, timers-ext@0.1.x:
   version "0.1.7"
@@ -159,3 +212,8 @@ type@^2.7.2:
   version "2.7.2"
   resolved "https://artifactory.devops.xiaohongshu.com/artifactory/api/npm/npm-public/type/download/type-2.7.2.tgz#2376a15a3a28b1efa0f5350dcf72d24df6ef98d0"
   integrity sha1-I3ahWjoose+g9TUNz3LSTfbvmNA=
+
+typescript@^5.2.2:
+  version "5.2.2"
+  resolved "https://artifactory.devops.xiaohongshu.com/artifactory/api/npm/npm-public/typescript/-/typescript-5.2.2.tgz#5ebb5e5a5b75f085f22bc3f8460fba308310fa78"
+  integrity sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==

@@ -2,11 +2,18 @@
   "name": "tslint",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
+  "bin": {
+    "tslint": "./src/index.js"
+  },
+  "type": "commonjs",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^5.3.0",
+    "chalk": "^4",
     "clear": "^0.1.0",
-    "clui": "^0.3.6"
+    "clui": "^0.3.6",
+    "minimatch": "^9.0.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
   }
 }
