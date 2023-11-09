@@ -16,5 +16,9 @@
   },
   "devDependencies": {
     "typescript": "^5.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hongding0211/tslint"
   }
 }
