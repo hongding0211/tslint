@@ -1,6 +1,7 @@
 {
-  "name": "tslint",
-  "version": "1.0.0",
+  "name": "@hong97/tslint",
+  "version": "0.0.1",
+  "author": "hongding",
   "main": "index.js",
   "bin": {
     "tslint": "./src/index.js"
