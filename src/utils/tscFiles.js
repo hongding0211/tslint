@@ -76,7 +76,7 @@ module.exports = function tscFiles(args, tscOutputFileName) {
           "typescript",
           `../.bin/tsc${process.platform === "win32" ? ".cmd" : ""}`
         ),
-    ["-p", tmpTsconfigPath, "--tsBuildInfoFile", tscOutputFileName, ...remainingArgsToForward],
+    ["-p", tmpTsconfigPath, "--noEmit", "--tsBuildInfoFile", tscOutputFileName, ...remainingArgsToForward],
     { stdio: "ignore" }
   );
 
