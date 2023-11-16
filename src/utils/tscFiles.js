@@ -2,7 +2,7 @@ const { spawnSync } = require("child_process");
 const fs = require("fs");
 const { dirname, join } = require("path");
 
-module.exports = function tscFiles(args, tscOutputFileName) {
+module.exports = function tscFiles(args, tscOutputFileName, alwaysInclude) {
   const randomChars = () => {
     return Math.random().toString(36).slice(2);
   };
@@ -52,7 +52,7 @@ module.exports = function tscFiles(args, tscOutputFileName) {
       skipLibCheck: true,
     },
     files,
-    include: [],
+    include: Array.isArray(alwaysInclude) ? alwaysInclude : [],
   };
   fs.writeFileSync(tmpTsconfigPath, JSON.stringify(tmpTsconfig, null, 2));
 

@@ -21,7 +21,7 @@ if (fs.existsSync(TSLINT_CONFIG_FILE_NAME)) {
 }
 
 // run tsc first
-const runTsc = tscFiles(inputFiles, TSC_OUTPUT_FILE_NAME)
+const runTsc = tscFiles(inputFiles, TSC_OUTPUT_FILE_NAME, config?.alwaysInclude)
 // if tsc exit with 0, than do nothing
 if (runTsc === 0) {
   process.exit(0)
