@@ -1,5 +1,3 @@
-const decode = require("./decode.js");
-
 function parseLine(buff, start, length) {
   let begin, end, lineNumber = 1, columnNumber = 0, whiteSpace = 0;
   let flag = false;

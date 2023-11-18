@@ -14,16 +14,32 @@ const TSC_OUTPUT_FILE_NAME = `tsc_output_${Date.now()}.json`;
 const args = process.argv;
 const inputFiles = args.slice(2);
 
-// read js if file exists
+// read config if file exists
 let config = undefined
 if (fs.existsSync(TSLINT_CONFIG_FILE_NAME)) {
   config = require(`${process.cwd()}/${TSLINT_CONFIG_FILE_NAME}`)
+}
+
+let context = {
+  totalFiles: inputFiles.length,
+  totalErrors: 0,
+  ignoredError: 0,
+  meta: {
+    inputFiles,
+  }
+}
+
+function onFinish() {
+  if (typeof config?.onFinish === 'function') {
+    config.onFinish(context)
+  }
 }
 
 // run tsc first
 const runTsc = tscFiles(inputFiles, TSC_OUTPUT_FILE_NAME, config?.alwaysInclude)
 // if tsc exit with 0, than do nothing
 if (runTsc === 0) {
+  onFinish()
   process.exit(0)
 }
 
@@ -38,6 +54,7 @@ const parsedOutput = parseJscOutput(tscOutput, inputFiles, config?.ignore || [])
 if (!Array.isArray(parsedOutput) || parsedOutput.length === 0) {
   console.log(chalk.bold.bgGreen('Typescript checked passed.'))
   console.log(chalk.bold.green(`Found 0 error in ${inputFiles.length} file(s).`))
+  onFinish()
   process.exit(0)
 }
 
@@ -65,4 +82,5 @@ for (const [k, v] of Object.entries(groupedOutput)) {
 console.log(chalk.bold.bgRed(`Typescript checked failed.`))
 console.log(chalk.bold.red(`Found ${parsedOutput.length} error(s) in ${Object.keys(groupedOutput).length} file(s).\r\n\r\n`))
 
+onFinish()
 process.exit(1)
