@@ -9,7 +9,7 @@
 - Install tslint, use:
 
   ```bash
-  npm i -D @hong97/tslint`
+  npm i -D @hong97/tslint
   ```
 
 - In package.json, add tslint to `*.ts`, `*.tsx` files.

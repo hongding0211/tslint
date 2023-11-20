@@ -23,6 +23,7 @@ if (fs.existsSync(TSLINT_CONFIG_FILE_NAME)) {
 let context = {
   totalFiles: inputFiles.length,
   totalErrors: 0,
+  ignoredFiles: 0,
   ignoredError: 0,
   meta: {
     inputFiles,
@@ -45,10 +46,11 @@ if (runTsc === 0) {
 
 // read tsc output from file
 const tscOutput = JSON.parse(fs.readFileSync(TSC_OUTPUT_FILE_NAME).toString())
+context.meta.tscOutput = tscOutput
 // remove tsc output file
 fs.unlinkSync(TSC_OUTPUT_FILE_NAME)
 
-const parsedOutput = parseJscOutput(tscOutput, inputFiles, config?.ignore || [])
+const parsedOutput = parseJscOutput(tscOutput, inputFiles, config?.ignore || [], context)
 
 // if there is no error, than exist with 0
 if (!Array.isArray(parsedOutput) || parsedOutput.length === 0) {
@@ -57,6 +59,7 @@ if (!Array.isArray(parsedOutput) || parsedOutput.length === 0) {
   onFinish()
   process.exit(0)
 }
+context.totalErrors = parsedOutput.length + context.ignoredError
 
 // group by outputs based on input files
 const groupedOutput = {}

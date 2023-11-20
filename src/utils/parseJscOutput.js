@@ -11,18 +11,32 @@ function flatArray(arr) {
   );
 }
 
-function parse(data, fileList, ignorePatterns) {
+function parse(data, fileList, ignorePatterns, ctx) {
   const {
     program: { semanticDiagnosticsPerFile },
   } = data;
 
   const relativeFileList = fileList.map((f) => f.replace(ROOT_DIR, "."));
 
+  const ignoredFiles = new Set()
+
   return flatArray(semanticDiagnosticsPerFile).filter(
-    (e) =>
-      typeof e === "object" &&
-      relativeFileList.includes(e.file) &&
-      !match(e.file, ignorePatterns)
+    (e) => {
+      if (typeof e !== 'object') {
+        return false
+      }
+      if (match(e.file, ignorePatterns)) {
+        ctx.ignoredError++
+        if (!ignoredFiles.has(e.file)) {
+          ctx.ignoredFiles++
+          ignoredFiles.add(e.file)
+        }
+      }
+      return (
+        relativeFileList.includes(e.file) &&
+        !match(e.file, ignorePatterns)
+      );
+    }
   );
 }
 
